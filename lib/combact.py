@@ -17,7 +17,7 @@ _lwDamage = pd.DataFrame(
      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
     index=[1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
     columns=list(range(-11, 12)))
-_enemyDamage = [0, 0, 0, 0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -14, -16, -18, -inf, -inf]
+_enemyDamage = [0, 0, 0, 0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -14, -16, -18, -inf, -inf, -inf]
 
 
 def damage(combactRatio, randomNumber):
@@ -29,4 +29,4 @@ def damage(combactRatio, randomNumber):
     damageOffset = combactRatio if combactRatio != 11 else 12
     enemyDamage = _enemyDamage[math.floor(damageOffset / 2) + 6 + randomOffset]
 
-    return namedtuple("Damange", ["loneWolf", "enemy"])(lwDamage, enemyDamage)
+    return namedtuple("Damage", ["loneWolf", "enemy"])(lwDamage, enemyDamage)

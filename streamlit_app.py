@@ -87,6 +87,8 @@ disciplines = pd.DataFrame(
 backPack = pd.DataFrame([[""], [""], [""], [""], [""], [""], [""], [""], ], columns=["Item"])
 combactRecord = CombactRecord.create()
 combactModifiers = pd.DataFrame([["", "", False]], columns=["name", "modifier", "active"])
+weapons = pd.DataFrame([[""], [""]], columns=["Weapon"])
+specialItems = pd.DataFrame([["", ""]], columns=["Description", "Effects"])
 
 
 def setupState():
@@ -123,6 +125,9 @@ def actionChart():
         with c12:
             st.text_area("Meals")
             st.text_area("BeltPouch")
+        st.markdown("#### Weapons")
+        st.data_editor(weapons, use_container_width=True, hide_index=True)
+
     with c2:
         c21, c22 = st.columns([1, 1])
         with c21:
@@ -143,6 +148,8 @@ def actionChart():
             st.number_input("Current", key="lw_endurance", step=1)
             st.number_input("Max", key="lw_endurance_max", step=1)
         combactRecord.editor()
+        st.markdown("#### Special Items List")
+        st.data_editor(specialItems, use_container_width=True, hide_index=True, num_rows="dynamic")
 
 
 def sidebar():
